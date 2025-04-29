@@ -13,16 +13,14 @@ public class BaseDriver {
     public static WebDriverWait wait;
     public static JavascriptExecutor js;
 
-    // public static void BaslanicIslermleri() {  böyle yerine sadece static yazınca direk çalışır
-    static {  // tearStart
+    static {
 
         driver = new ChromeDriver();
         wait=new WebDriverWait(driver, Duration.ofSeconds(20));
         js=(JavascriptExecutor)driver;
 
-        //driver.manage().window().maximize(); // Ekranı max yapıyor.
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühleti
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // 20 sn mühlet: elemanı bulma mühleti
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public static void BekleKapat() {  // tearDown
